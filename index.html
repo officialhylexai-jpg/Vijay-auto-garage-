@@ -9,18 +9,16 @@
 
 <style>
 
-html, body{
+html,body{
 margin:0;
 padding:0;
-color:white;
 font-family:sans-serif;
+color:white;
 overflow-x:hidden;
-
-/* PREMIUM DARK BG */
-background: radial-gradient(circle at 30% 20%, #1a1a1a, #000000 70%);
+background: radial-gradient(circle at 30% 20%, #1a1a1a, #000 70%);
 }
 
-/* CANVAS */
+/* CANVAS BG */
 canvas{
 position:fixed;
 top:0;
@@ -41,8 +39,6 @@ backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,0.1);
 transition:0.3s;
 }
-
-/* HOVER EFFECT */
 .glass:hover{
 border-color:#ff6a00;
 box-shadow:0 0 20px #ff6a0055;
@@ -53,19 +49,17 @@ transform:translateY(-5px);
 button{
 transition:0.3s;
 }
-
 button:hover{
 transform:scale(1.05);
 box-shadow:0 0 15px rgba(255,106,0,0.6);
 }
 
-/* SCROLL ANIMATION */
+/* FADE ANIMATION */
 .fade{
 opacity:0;
 transform:translateY(40px);
 transition:0.8s;
 }
-
 .fade.show{
 opacity:1;
 transform:translateY(0);
@@ -82,7 +76,6 @@ justify-content:center;
 z-index:9999;
 transition:0.5s;
 }
-
 .spin{
 width:50px;
 height:50px;
@@ -91,9 +84,62 @@ border-top:4px solid transparent;
 border-radius:50%;
 animation:spin 1s linear infinite;
 }
+@keyframes spin{to{transform:rotate(360deg);}}
 
-@keyframes spin{
+/* GEAR */
+.gear{
+position:fixed;
+bottom:30px;
+right:30px;
+width:60px;
+height:60px;
+background:url('https://cdn-icons-png.flaticon.com/512/3524/3524659.png') no-repeat center/cover;
+animation:spinGear 6s linear infinite;
+opacity:0.7;
+}
+@keyframes spinGear{
+from{transform:rotate(0);}
 to{transform:rotate(360deg);}
+}
+
+/* CHAT */
+#chatBox{
+position:fixed;
+bottom:100px;
+right:20px;
+background:rgba(0,0,0,0.85);
+padding:15px;
+border-radius:15px;
+display:none;
+}
+#chatBox a{
+display:block;
+margin-top:10px;
+background:#25D366;
+padding:8px;
+border-radius:10px;
+text-align:center;
+}
+
+/* POPUP */
+#successPopup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+}
+.popupBox{
+background:#111;
+padding:30px;
+border-radius:15px;
+text-align:center;
+animation:scaleUp 0.4s ease;
+}
+@keyframes scaleUp{
+from{transform:scale(0.7);}
+to{transform:scale(1);}
 }
 
 </style>
@@ -104,11 +150,9 @@ to{transform:rotate(360deg);}
 <canvas id="bg"></canvas>
 
 <!-- LOADER -->
-<div id="loader">
-<div class="spin"></div>
-</div>
+<div id="loader"><div class="spin"></div></div>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav class="flex justify-between items-center p-5">
 <h1 class="text-xl font-bold">Vijay Auto Garage</h1>
 <div class="space-x-6 text-gray-300">
@@ -129,7 +173,6 @@ Trusted bike service with fast delivery, expert mechanics and modern tools.
 <a href="#contact">
 <button class="bg-orange-600 px-6 py-3 rounded-xl">Book Service</button>
 </a>
-
 <a href="tel:7874415124">
 <button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
 </a>
@@ -139,25 +182,21 @@ Trusted bike service with fast delivery, expert mechanics and modern tools.
 <!-- SERVICES -->
 <section id="services" class="py-20 px-6 text-center fade">
 <h2 class="text-3xl font-bold mb-10">Our Services</h2>
-
 <div class="grid md:grid-cols-4 gap-6">
 <div class="glass p-6 rounded-2xl">
-<h3 class="font-semibold">General Service</h3>
+<h3>General Service</h3>
 <p class="text-gray-400 text-sm mt-2">Complete bike checkup</p>
 </div>
-
 <div class="glass p-6 rounded-2xl">
-<h3 class="font-semibold">Engine Repair</h3>
+<h3>Engine Repair</h3>
 <p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
 </div>
-
 <div class="glass p-6 rounded-2xl">
-<h3 class="font-semibold">Oil Change</h3>
+<h3>Oil Change</h3>
 <p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
 </div>
-
 <div class="glass p-6 rounded-2xl">
-<h3 class="font-semibold">Custom Work</h3>
+<h3>Custom Work</h3>
 <p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
 </div>
 </div>
@@ -174,12 +213,10 @@ Vijay Auto Garage is known for quality service and customer trust. We provide fa
 <!-- CONTACT -->
 <section id="contact" class="py-20 px-6 text-center fade">
 <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
-
 <div class="flex flex-col items-center gap-4">
 <a href="tel:7874415124">
 <button class="bg-orange-600 px-6 py-3 rounded-xl w-64">📞 Call Now</button>
 </a>
-
 <a href="https://wa.me/917874415124" target="_blank">
 <button class="bg-green-600 px-6 py-3 rounded-xl w-64">💬 WhatsApp</button>
 </a>
@@ -190,20 +227,34 @@ Vijay Auto Garage is known for quality service and customer trust. We provide fa
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="py-10 text-center text-gray-500">
 © 2026 Vijay Auto Garage
 </footer>
 
+<!-- FLOATING UI -->
+<div class="gear"></div>
+
+<div id="chatBox">
+<p>👋 Hi! Need bike service?</p>
+<a href="https://wa.me/917874415124" target="_blank">Chat on WhatsApp</a>
+</div>
+
+<div id="successPopup">
+<div class="popupBox">
+<h2>✅ Booking Sent!</h2>
+<p>We will contact you shortly.</p>
+</div>
+</div>
+
 <script>
 
-/* LOADER FADE */
+/* LOADER */
 window.onload=()=>{
-document.getElementById('loader').style.opacity='0';
-setTimeout(()=>document.getElementById('loader').style.display='none',500);
+document.getElementById("loader").style.opacity="0";
+setTimeout(()=>document.getElementById("loader").style.display="none",500);
 };
 
-/* PARTICLES (SPARK STYLE) */
+/* PARTICLES */
 const canvas=document.getElementById("bg");
 const ctx=canvas.getContext("2d");
 
@@ -215,7 +266,6 @@ resize();
 window.addEventListener("resize",resize);
 
 let particles=[];
-
 for(let i=0;i<100;i++){
 particles.push({
 x:Math.random()*canvas.width,
@@ -244,7 +294,6 @@ ctx.fill();
 
 requestAnimationFrame(animate);
 }
-
 animate();
 
 /* SCROLL ANIMATION */
@@ -254,13 +303,26 @@ function show(){
 fades.forEach(el=>{
 const top=el.getBoundingClientRect().top;
 if(top<window.innerHeight-50){
-el.classList.add('show');
+el.classList.add("show");
 }
 });
 }
+window.addEventListener("scroll",show);
+window.addEventListener("load",show);
 
-window.addEventListener('scroll',show);
-window.addEventListener('load',show);
+/* CHAT POPUP */
+setTimeout(()=>{
+document.getElementById("chatBox").style.display="block";
+},4000);
+
+/* SUCCESS POPUP */
+document.querySelectorAll('a[href="#contact"]').forEach(btn=>{
+btn.addEventListener("click",()=>{
+setTimeout(()=>{
+document.getElementById("successPopup").style.display="flex";
+},1500);
+});
+});
 
 </script>
 
