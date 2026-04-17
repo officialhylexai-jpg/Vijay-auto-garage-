@@ -3,7 +3,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vijay Auto Garage</title>  <script src="https://cdn.tailwindcss.com"></script>  <style>
-    body { background:#0f172a; color:white; }
+    body {
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(2,6,23,0.85));
+      color: white;
+      backdrop-filter: blur(10px);
+    }
 
     /* Loader */
     #loader {
@@ -23,7 +27,7 @@
     @keyframes spin {
       to { transform:rotate(360deg); }
     }
-  </style></head><body><!-- LOADING --><div id="loader"><div class="spin"></div></div><!-- NAVBAR --><nav class="flex justify-between items-center p-5 bg-slate-900 shadow-md">
+  </style></head><body><!-- LOADING --><div id="loader"><div class="spin"></div></div><!-- NAVBAR --><nav class="flex justify-between items-center p-5 bg-white/5 backdrop-blur-md border-b border-white/10">
   <h1 class="text-xl font-bold">Vijay Auto Garage</h1>
   <div class="space-x-6 text-gray-300">
     <a href="#services">Services</a>
@@ -38,26 +42,26 @@
     <a href="#contact">
       <button class="bg-blue-600 px-6 py-3 rounded-xl">Book Service</button>
     </a><a href="tel:7874415124">
-  <button class="border border-white px-6 py-3 rounded-xl">Call Now</button>
+  <button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
 </a>
 
   </div>
 </section><!-- SERVICES --><section id="services" class="py-20 px-6 text-center">
   <h2 class="text-3xl font-bold mb-10">Our Services</h2>  <div class="grid md:grid-cols-4 gap-6">
-    <div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
       <h3 class="font-semibold">General Service</h3>
       <p class="text-gray-400 text-sm mt-2">Complete bike checkup</p>
-    </div><div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+    </div><div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
   <h3 class="font-semibold">Engine Repair</h3>
   <p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
 </div>
 
-<div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+<div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
   <h3 class="font-semibold">Oil Change</h3>
   <p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
 </div>
 
-<div class="bg-slate-800 p-6 rounded-2xl shadow-lg">
+<div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
   <h3 class="font-semibold">Custom Work</h3>
   <p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
 </div>
@@ -77,7 +81,7 @@
 </a>
 
   </div>  <div class="mt-10 max-w-3xl mx-auto">
-    <iframe class="w-full h-72 rounded-xl" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
+    <iframe class="w-full h-72 rounded-xl border border-white/10" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
   </div>
 </section><!-- FOOTER --><footer class="py-10 text-center text-gray-500">
   © 2026 Vijay Auto Garage
