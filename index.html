@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijay Auto Garage</title>  <!-- Tailwind -->  <script src="https://cdn.tailwindcss.com"></script>  <!-- THREE JS (3D effect) -->  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>  <style>
+    body { background:#050505; color:white; overflow-x:hidden; }
+
+    /* Glow Effect */
+    .glow { box-shadow:0 0 15px #22c55e, 0 0 30px #22c55e; }
+
+    /* Loader */
+    #loader {
+      position:fixed; inset:0; background:black;
+      display:flex; align-items:center; justify-content:center;
+      z-index:9999;
+    }
+
+    .spin {
+      width:60px; height:60px;
+      border:5px solid #22c55e;
+      border-top:5px solid transparent;
+      border-radius:50%;
+      animation:spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform:rotate(360deg); }
+    }
+  </style></head><body><!-- LOADING --><div id="loader"><div class="spin"></div></div><!-- NAVBAR --><nav class="flex justify-between p-5 bg-black border-b border-gray-800">
+  <h1 class="text-xl font-bold text-green-400 glow">Vijay Auto Garage</h1>
+  <div class="space-x-6">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav><!-- HERO --><section class="h-screen flex flex-col justify-center items-center text-center">
+  <h1 class="text-5xl font-bold glow">Premium Bike Garage</h1>
+  <p class="text-gray-400 mt-4">Fast • Reliable • Professional</p>  <a href="#contact">
+    <button class="mt-6 bg-green-500 px-6 py-3 rounded-xl glow">Book Service</button>
+  </a>
+</section><!-- SERVICES --><section id="services" class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-10">Our Services</h2>
+  <div class="grid md:grid-cols-4 gap-6 px-6">
+    <div class="bg-gray-900 p-6 rounded-xl glow">General Service</div>
+    <div class="bg-gray-900 p-6 rounded-xl glow">Engine Repair</div>
+    <div class="bg-gray-900 p-6 rounded-xl glow">Oil Change</div>
+    <div class="bg-gray-900 p-6 rounded-xl glow">Custom Mods</div>
+  </div>
+</section><!-- GALLERY --><section id="gallery" class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-10">Bike Gallery</h2>
+  <div class="grid md:grid-cols-3 gap-6 px-6">
+    <img src="https://images.unsplash.com/photo-1518655048521-f130df041f66" class="rounded-xl hover:scale-105 transition" />
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" class="rounded-xl hover:scale-105 transition" />
+    <img src="https://images.unsplash.com/photo-1549921296-3c0cfc9e3b46" class="rounded-xl hover:scale-105 transition" />
+  </div>
+</section><!-- ABOUT --><section class="py-20 text-center px-6">
+  <h2 class="text-3xl font-bold mb-4">About Us</h2>
+  <p class="text-gray-400 max-w-2xl mx-auto">
+    Vijay Auto Garage provides top-quality bike repair with modern tools and expert mechanics.
+  </p>
+</section><!-- CONTACT --><section id="contact" class="py-20 text-center px-6">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>  <a href="tel:7874415124">
+    <button class="bg-green-500 px-6 py-3 rounded-xl mb-4 w-60 glow">📞 Call Now</button>
+  </a>  <br />  <a href="https://wa.me/917874415124" target="_blank">
+    <button class="bg-green-600 px-6 py-3 rounded-xl mb-4 w-60 glow">💬 WhatsApp</button>
+  </a>  <div class="mt-6 max-w-3xl mx-auto">
+    <iframe class="w-full h-72 rounded-xl" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
+  </div>
+</section><!-- FOOTER --><footer class="py-10 text-center text-gray-500">
+  © 2026 Vijay Auto Garage
+</footer><!-- SCRIPT --><script>
+  // Loader hide
+  window.onload = () => {
+    document.getElementById('loader').style.display = 'none';
+  };
+
+  // Simple 3D background animation
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({alpha:true});
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  const geometry = new THREE.TorusGeometry(5,1,16,100);
+  const material = new THREE.MeshBasicMaterial({color:0x22c55e, wireframe:true});
+  const torus = new THREE.Mesh(geometry, material);
+
+  scene.add(torus);
+  camera.position.z = 15;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    torus.rotation.x += 0.01;
+    torus.rotation.y += 0.01;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script></body>
+</html>
