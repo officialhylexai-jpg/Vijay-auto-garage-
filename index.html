@@ -1,155 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vijay Auto Garage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijay Auto Garage</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: rgba(0, 0, 0, 0.85); /* transparent dark */
-      color: white;
-      font-family: sans-serif;
-    }
+<style>
 
-    nav {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-    }
+html, body{
+margin:0;
+padding:0;
+color:white;
+font-family:sans-serif;
+overflow-x:hidden;
 
-    .glass {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+/* PREMIUM DARK BG */
+background: radial-gradient(circle at 30% 20%, #1a1a1a, #000000 70%);
+}
 
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
+/* CANVAS */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
 
-    .spin {
-      width: 50px;
-      height: 50px;
-      border: 4px solid white;
-      border-top: 4px solid transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
+/* NAV */
+nav{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+/* GLASS */
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
+
+/* HOVER EFFECT */
+.glass:hover{
+border-color:#ff6a00;
+box-shadow:0 0 20px #ff6a0055;
+transform:translateY(-5px);
+}
+
+/* BUTTON */
+button{
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px rgba(255,106,0,0.6);
+}
+
+/* SCROLL ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* LOADER */
+#loader{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+transition:0.5s;
+}
+
+.spin{
+width:50px;
+height:50px;
+border:4px solid white;
+border-top:4px solid transparent;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+to{transform:rotate(360deg);}
+}
+
+</style>
 </head>
 
 <body>
 
+<canvas id="bg"></canvas>
+
 <!-- LOADER -->
 <div id="loader">
-  <div class="spin"></div>
+<div class="spin"></div>
 </div>
 
 <!-- NAVBAR -->
 <nav class="flex justify-between items-center p-5">
-  <h1 class="text-xl font-bold">Vijay Auto Garage</h1>
-  <div class="space-x-6 text-gray-300">
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
+<h1 class="text-xl font-bold">Vijay Auto Garage</h1>
+<div class="space-x-6 text-gray-300">
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6">
-  <h1 class="text-5xl font-bold mb-4">Vijay Auto Garage</h1>
-  <p class="text-gray-400 max-w-xl">
-    Trusted bike service with fast delivery, expert mechanics and modern tools.
-  </p>
+<section class="h-screen flex flex-col justify-center items-center text-center px-6 fade">
+<h1 class="text-5xl font-bold mb-4">Vijay Auto Garage</h1>
+<p class="text-gray-400 max-w-xl">
+Trusted bike service with fast delivery, expert mechanics and modern tools.
+</p>
 
-  <div class="mt-8 flex gap-4">
-    <a href="#contact">
-      <button class="bg-blue-600 px-6 py-3 rounded-xl">Book Service</button>
-    </a>
+<div class="mt-8 flex gap-4">
+<a href="#contact">
+<button class="bg-orange-600 px-6 py-3 rounded-xl">Book Service</button>
+</a>
 
-    <a href="tel:7874415124">
-      <button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
-    </a>
-  </div>
+<a href="tel:7874415124">
+<button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
+</a>
+</div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-10">Our Services</h2>
+<section id="services" class="py-20 px-6 text-center fade">
+<h2 class="text-3xl font-bold mb-10">Our Services</h2>
 
-  <div class="grid md:grid-cols-4 gap-6">
-    <div class="glass p-6 rounded-2xl">
-      <h3 class="font-semibold">General Service</h3>
-      <p class="text-gray-400 text-sm mt-2">Complete bike checkup</p>
-    </div>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="glass p-6 rounded-2xl">
+<h3 class="font-semibold">General Service</h3>
+<p class="text-gray-400 text-sm mt-2">Complete bike checkup</p>
+</div>
 
-    <div class="glass p-6 rounded-2xl">
-      <h3 class="font-semibold">Engine Repair</h3>
-      <p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
-    </div>
+<div class="glass p-6 rounded-2xl">
+<h3 class="font-semibold">Engine Repair</h3>
+<p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
+</div>
 
-    <div class="glass p-6 rounded-2xl">
-      <h3 class="font-semibold">Oil Change</h3>
-      <p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
-    </div>
+<div class="glass p-6 rounded-2xl">
+<h3 class="font-semibold">Oil Change</h3>
+<p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
+</div>
 
-    <div class="glass p-6 rounded-2xl">
-      <h3 class="font-semibold">Custom Work</h3>
-      <p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
-    </div>
-  </div>
+<div class="glass p-6 rounded-2xl">
+<h3 class="font-semibold">Custom Work</h3>
+<p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
+</div>
+</div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-4">About Us</h2>
-  <p class="text-gray-400 max-w-2xl mx-auto">
-    Vijay Auto Garage is known for quality service and customer trust. We provide fast and reliable service using modern tools.
-  </p>
+<section id="about" class="py-20 px-6 text-center fade">
+<h2 class="text-3xl font-bold mb-4">About Us</h2>
+<p class="text-gray-400 max-w-2xl mx-auto">
+Vijay Auto Garage is known for quality service and customer trust. We provide fast and reliable service using modern tools.
+</p>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+<section id="contact" class="py-20 px-6 text-center fade">
+<h2 class="text-3xl font-bold mb-6">Contact Us</h2>
 
-  <div class="flex flex-col items-center gap-4">
-    <a href="tel:7874415124">
-      <button class="bg-blue-600 px-6 py-3 rounded-xl w-64">📞 Call Now</button>
-    </a>
+<div class="flex flex-col items-center gap-4">
+<a href="tel:7874415124">
+<button class="bg-orange-600 px-6 py-3 rounded-xl w-64">📞 Call Now</button>
+</a>
 
-    <a href="https://wa.me/917874415124" target="_blank">
-      <button class="bg-green-600 px-6 py-3 rounded-xl w-64">💬 WhatsApp</button>
-    </a>
-  </div>
+<a href="https://wa.me/917874415124" target="_blank">
+<button class="bg-green-600 px-6 py-3 rounded-xl w-64">💬 WhatsApp</button>
+</a>
+</div>
 
-  <div class="mt-10 max-w-3xl mx-auto">
-    <iframe class="w-full h-72 rounded-xl" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
-  </div>
+<div class="mt-10 max-w-3xl mx-auto">
+<iframe class="w-full h-72 rounded-xl" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="py-10 text-center text-gray-500">
-  © 2026 Vijay Auto Garage
+© 2026 Vijay Auto Garage
 </footer>
 
 <script>
-  window.onload = () => {
-    document.getElementById('loader').style.display = 'none';
-  };
+
+/* LOADER FADE */
+window.onload=()=>{
+document.getElementById('loader').style.opacity='0';
+setTimeout(()=>document.getElementById('loader').style.display='none',500);
+};
+
+/* PARTICLES (SPARK STYLE) */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+function resize(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+resize();
+window.addEventListener("resize",resize);
+
+let particles=[];
+
+for(let i=0;i<100;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5)*0.6,
+dy:(Math.random()-0.5)*0.6
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width) p.dx*=-1;
+if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#ff6a00";
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+/* SCROLL ANIMATION */
+const fades=document.querySelectorAll('.fade');
+
+function show(){
+fades.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-50){
+el.classList.add('show');
+}
+});
+}
+
+window.addEventListener('scroll',show);
+window.addEventListener('load',show);
+
 </script>
 
 </body>
