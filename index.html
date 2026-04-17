@@ -1,92 +1,156 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vijay Auto Garage</title>  <script src="https://cdn.tailwindcss.com"></script>  <style>
-    body {
-      background: transparent;
+  <title>Vijay Auto Garage</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.85); /* transparent dark */
       color: white;
+      font-family: sans-serif;
     }
 
-    /* Loader */
+    nav {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
     #loader {
-      position:fixed; inset:0; background:#0f172a;
-      display:flex; align-items:center; justify-content:center;
-      z-index:9999;
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
     }
 
     .spin {
-      width:60px; height:60px;
-      border:5px solid white;
-      border-top:5px solid transparent;
-      border-radius:50%;
-      animation:spin 1s linear infinite;
+      width: 50px;
+      height: 50px;
+      border: 4px solid white;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
     }
 
     @keyframes spin {
-      to { transform:rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
-  </style></head><body><!-- LOADING --><div id="loader"><div class="spin"></div></div><!-- NAVBAR --><nav class="flex justify-between items-center p-5 bg-white/5 backdrop-blur-md border-b border-white/10">
+  </style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="spin"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center p-5">
   <h1 class="text-xl font-bold">Vijay Auto Garage</h1>
   <div class="space-x-6 text-gray-300">
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
-</nav><!-- HERO --><section class="h-screen flex flex-col justify-center items-center text-center px-6">
+</nav>
+
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
   <h1 class="text-5xl font-bold mb-4">Premium Bike Garage</h1>
   <p class="text-gray-400 max-w-xl">
     Trusted bike service with fast delivery, expert mechanics and modern tools.
-  </p>  <div class="mt-8 flex gap-4">
+  </p>
+
+  <div class="mt-8 flex gap-4">
     <a href="#contact">
       <button class="bg-blue-600 px-6 py-3 rounded-xl">Book Service</button>
-    </a><a href="tel:7874415124">
-  <button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
-</a>
+    </a>
 
+    <a href="tel:7874415124">
+      <button class="border border-white/40 px-6 py-3 rounded-xl">Call Now</button>
+    </a>
   </div>
-</section><!-- SERVICES --><section id="services" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-10">Our Services</h2>  <div class="grid md:grid-cols-4 gap-6">
-    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-10">Our Services</h2>
+
+  <div class="grid md:grid-cols-4 gap-6">
+    <div class="glass p-6 rounded-2xl">
       <h3 class="font-semibold">General Service</h3>
       <p class="text-gray-400 text-sm mt-2">Complete bike checkup</p>
-    </div><div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
-  <h3 class="font-semibold">Engine Repair</h3>
-  <p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
-</div>
+    </div>
 
-<div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
-  <h3 class="font-semibold">Oil Change</h3>
-  <p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
-</div>
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="font-semibold">Engine Repair</h3>
+      <p class="text-gray-400 text-sm mt-2">Engine diagnostics & repair</p>
+    </div>
 
-<div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
-  <h3 class="font-semibold">Custom Work</h3>
-  <p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
-</div>
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="font-semibold">Oil Change</h3>
+      <p class="text-gray-400 text-sm mt-2">High quality engine oil</p>
+    </div>
 
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="font-semibold">Custom Work</h3>
+      <p class="text-gray-400 text-sm mt-2">Modification & upgrades</p>
+    </div>
   </div>
-</section><!-- ABOUT --><section id="about" class="py-20 px-6 text-center">
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 px-6 text-center">
   <h2 class="text-3xl font-bold mb-4">About Us</h2>
   <p class="text-gray-400 max-w-2xl mx-auto">
-    Vijay Auto Garage is known for quality service and customer trust. We focus on delivering fast and reliable repair solutions using modern tools and skilled technicians.
+    Vijay Auto Garage is known for quality service and customer trust. We provide fast and reliable service using modern tools.
   </p>
-</section><!-- CONTACT --><section id="contact" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>  <div class="flex flex-col items-center gap-4">
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+
+  <div class="flex flex-col items-center gap-4">
     <a href="tel:7874415124">
       <button class="bg-blue-600 px-6 py-3 rounded-xl w-64">📞 Call Now</button>
-    </a><a href="https://wa.me/917874415124" target="_blank">
-  <button class="bg-green-600 px-6 py-3 rounded-xl w-64">💬 WhatsApp</button>
-</a>
+    </a>
 
-  </div>  <div class="mt-10 max-w-3xl mx-auto">
-    <iframe class="w-full h-72 rounded-xl border border-white/10" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
+    <a href="https://wa.me/917874415124" target="_blank">
+      <button class="bg-green-600 px-6 py-3 rounded-xl w-64">💬 WhatsApp</button>
+    </a>
   </div>
-</section><!-- FOOTER --><footer class="py-10 text-center text-gray-500">
+
+  <div class="mt-10 max-w-3xl mx-auto">
+    <iframe class="w-full h-72 rounded-xl" src="https://www.google.com/maps?q=21.459176,73.476245&output=embed"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-500">
   © 2026 Vijay Auto Garage
-</footer><script>
+</footer>
+
+<script>
   window.onload = () => {
     document.getElementById('loader').style.display = 'none';
   };
-</script></body>
+</script>
+
+</body>
 </html>
